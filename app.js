@@ -26,7 +26,7 @@ function getCustomer() {
 
       document.getElementById('customer').after(ul);
     }
-  }
+  };
 
   xhr.send();
 }
@@ -46,23 +46,18 @@ function getCustomers() {
       let output = ``;
       
       customers.forEach(customer => {
-        let ul = document.createElement('ul');
-
-        lis = `
+        output += `
+        <ul>
           <li>ID: ${customer.id}</li>
           <li>Name: ${customer.name}</li>
           <li>Company: ${customer.company}</li>
           <li>Phone: ${customer.phone}</li>
-        `;
-
-        ul.innerHTML = lis;
-
-        output += ul;
+        </ul>`;
       });
 
-      document.getElementById('customers').after(output);
+      document.getElementById('customers').parentElement.innerHTML += output;
     }
-  }
+  };
 
   xhr.send();
 }
